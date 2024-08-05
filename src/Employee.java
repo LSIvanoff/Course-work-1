@@ -1,21 +1,18 @@
 import java.util.Objects;
 public class Employee {
-    private String fullname;
+    private final String fullname;
     private int department;
     private int salary;
-    private static int count = 1;
-    private int id;
+    private static int count = 0;
+    private final int id;
 
     public Employee(String fullname, int department, int salary) {
+        this.id = ++count;
         this.fullname = fullname;
         this.department = department;
         this.salary = salary;
-        this.id = count++;
     }
-    public static int id(int i) {
-        i++;
-        return i;
-    }
+
 
     public String getFullname() {
         return fullname;
@@ -25,21 +22,15 @@ public class Employee {
         return department;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
-    }
-
-    public static int getCount() {
-        return count;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
+
 
     public void setDepartment(int department) {
         this.department = department;
@@ -49,13 +40,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    public static void setCount(int count) {
-        Employee.count = count;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     @Override
     public String toString() {
